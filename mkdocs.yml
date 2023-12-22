@@ -1,0 +1,7 @@
+site_name: The XY Problem
+theme:
+  name: cluster
+extra:
+    prev_next_enabled: False
+    hidden: ['Home', 'MailUs']
+    fa_logo: 'fa-cube'

@@ -1,7 +1,3 @@
-Usprüngliche Idee dieser Seirte: [The XY Problem](https://xyproblem.info/)  
-Auch interessant: [Asking Smart Questions](http://www.catb.org/esr/faqs/smart-questions.html)  
-Wikipedia: [XY Problem](https://de.wikipedia.org/wiki/XY_Problem)
-
 ## Was ist das XY-Problem?
 
 Um das XY Problem handelt es sich, wenn man nicht danach fragt, wie man das eigentliche Problem löst, sondern wie man ein sekundäres Problem löst, von dem man glaubt, dass es einen im nächsten Schritt zur Lösung des Hauptproblems brächte. Das führt dazu, dass Unmengen an Zeit und Energie unnütz verschwendet werden, sowohl seitens des Fragestellers, als auch auf der Seite derer, die versuchen, zu helfen.
@@ -53,3 +49,9 @@ Wenn Angela einfach gleich erzählt hätte, sie möchte verhindern, dass andere 
 > _Angela_: Aber ich möchte andere daran hindern, mein Betriebssystem zu erkennen
 
 &diams; [Quelle 1](http://meta.stackoverflow.com/questions/66377/what-is-the-xy-problem) &diams; [Quelle 2](http://mywiki.wooledge.org/XyProblem) &diams;
+
+## Weiterführende Links
+
+Usprüngliche Idee dieser Seite: [The XY Problem](https://xyproblem.info/)  
+Auch interessant: [Asking Smart Questions](http://www.catb.org/esr/faqs/smart-questions.html)  
+Wikipedia: [XY Problem](https://de.wikipedia.org/wiki/XY_Problem)

@@ -1,53 +1,55 @@
-See Also: [Asking Smart Questions](http://www.catb.org/esr/faqs/smart-questions.html).
+Usprüngliche Idee dieser Seirte: [The XY Problem](https://xyproblem.info/)  
+Auch interessant: [Asking Smart Questions](http://www.catb.org/esr/faqs/smart-questions.html)  
+Wikipedia: [XY Problem](https://de.wikipedia.org/wiki/XY_Problem)
 
-## What is it?
+## Was ist das XY-Problem?
 
-The XY problem is asking about your attempted solution rather than your actual problem. This leads to enormous amounts of wasted time and energy, both on the part of people asking for help, and on the part of those providing help.
+Um das XY Problem handelt es sich, wenn man nicht danach fragt, wie man das eigentliche Problem löst, sondern wie man ein sekundäres Problem löst, von dem man glaubt, dass es einen im nächsten Schritt zur Lösung des Hauptproblems brächte. Das führt dazu, dass Unmengen an Zeit und Energie unnütz verschwendet werden, sowohl seitens des Fragestellers, als auch auf der Seite derer, die versuchen, zu helfen.
 
-  - User wants to do X.
-  - User doesn't know how to do X, but thinks they can fumble their way to a solution if they can just manage to do Y.
-  - User doesn't know how to do Y either.
-  - User asks for help with Y.
-  - Others try to help user with Y, but are confused because Y seems like a strange problem to want to solve.
-  - After much interaction and wasted time, it finally becomes clear that the user really wants help with X, and that Y wasn't even a suitable solution for X.
+- Nutzer möchte X erreichen.
+- Nutzer weiß nicht, wie man X erreicht, denkt aber, X hinzubekommen, wenn nur irgendwie Y gelöst werden könnte, um von dort aus dann X zu erreichen.
+- Wie man Y erreicht weiß Nutzer auch nicht.
+- Nutzer bittet um Hilfe bei der Lösung von Y.
+- Andere versuchen, dem Nutzer dabei zu helfen, Y zu lösen, wundern sich aber darüber, dass Y ein seltsames Problem zu sein scheint (oder dass keine der vorgeschlagenen Lösungen zu passen scheinen).
+- Nach langem hin und her wird klar, dass nicht Y, sondern X erreicht werden soll. Und Y ist noch nicht mal ein passender Weg, um zu X zu kommen.
 
-The problem occurs when people get stuck on what they believe is the solution and are unable step back and explain the issue in full.
+Das Problem tritt dann auf, wenn Leute sich in eine bestimmte Lösungsrichtung verrennen und nicht mehr in der Lage sind, das Thema mit Abstand und seiner ganzen Fülle zu betrachten.
 
-## What to do about it?
+Was kann man dagegen tun?
 
-  - Always include information about a broader picture along with any attempted solution.
-  - If someone asks for more information, do provide details.
-  - If there are other solutions you've already ruled out, share why you've ruled them out. This gives more information about your requirements.
+- Benenne immer auch den breiteren Kontext, in dem Du versuchst, das Problem zu lösen, und welche Lösungsversuche Du bereits unternommen hast.
+- Wenn jemand nach weiteren Details fragt, stelle sie zur Verfügung!
+- Wenn Du bestimmte Lösungen bereits ausgeschlossen hast, dann teile mit, warum diese Lösungen nicht passend waren. Dadurch teilst Du weitere wichtige Informationen mit.
 
-Remember that if your diagnostic theories were accurate, you wouldn't be asking for help right?
+Denk daran - wenn all Deine Theorien und Erkenntnisse über das Problem korrekt wären, würdest Du wahrscheinlich nicht nach Hilfe fragen, oder?
 
-## Examples
+## Beispiele
 
-### Example 1
+### Beispiel 1
 
-n00b doesn't actually want the last 3 chracters in a filename, he wants the file extensions, so why ask for the last 3 characters?
+n00b Will eigentlich nicht die letzten drei Zeichen eines Dateinamens, sondern die Dateinamenerweiterung - warum also die Frage nach den letzten drei Zeichen?
 
 ```
-<bob> How can I echo the last three characters in a filename?
-<feline> If they're in a variable: echo ${foo: -3}
-<feline> Why 3 characters? What do you REALLY want?
-<feline> Do you want the extension?
-<bob> Yes.
-<feline> There's no guarantee that every filename will have a three-letter extension,
-<feline> so blindly grabbing three characters does not solve the problem.
+<n00b> Wie kann ich mir die letzten drei Zeichen eines Dateinamens ausgeben lassen?
+<feline> Wenn der Name in einer Variable steht: echo ${foo: -3}
+<feline> Warum drei Zeichen? Was willst Du WIRKLICH erreichen?
+<feline> Willst Du die Erweiterung wissen?
+<n00b> Ja.
+<feline> Es gibt keine Garantie dafür, dass jeder Dateiname eine Erweiterung bestehend aus drei Zeichen hat,
+<feline> also einfach blind die letzten drei Zeichen zu nutzen löst das Problem nicht.
 <feline> echo ${foo##*.}
 ```
 
-### Example 2
+### Beispiel 2
 
-If Angela had just started by explaining she wants to prevent others from detecting her OS, this could have been a much shorter and more productive discussion.
+Wenn Angela einfach gleich erzählt hätte, sie möchte verhindern, dass andere Ihr Betriebssystem erkennen können, wäre all das viel schneller und produktiver verlaufen.
 
-> _Angela_: 'nmap -O -A 127.0.0.1' returns some lines starting with 'OS:'. How to change it?  
-> _Obama_: Look in the sourcecode for nmap, find how it figures out the Linux part, then rewrite your TCP/IP stack to not operate in a way nmap can detect.  
-> _Angela_: Yeah, but I don't know about linux system api at all.  
-> _Obama_: Well, nmap's fingerprint is based on the way the TCP/IP stack works, there's no real way except to rewrite the appropriate parts of said stack.  
-> _Angela_: I really need to avoid these messages. Can iptables do this work?  
-> _Obama_: Well, don't use OS detection or version scanning  
-> _Angela_: I want to prevent others from knowing the type of my OS  
+> _Angela_: 'nmap -O -A 127.0.0.1' gibt ein paar Zeilen mit 'OS:' zurück. Wie kann ich das ändern?
+> _Obama_: Schaue im Quellcode von nmap, finde die Stelle mit der Linux-Erkennung, dann schreibe Deinen TCP/IP Stack so um, dass nmap es nicht mehr erkennt.
+> _Angela_: Okay, aber ich weiß absolut nichts über die Linux system API.
+> _Obama_: Nunja, das Fingerprinting von nmap basiert auf dem Verhalten des TCP/IP Stacks, es gibt nicht wirklich einen anderen Weg als die entsprechenden Teile dieses Stacks anzupassen.
+> _Angela_: Ich muss wirklich diese Meldungen unterbinden. Kann iptables das irgendwie erreichen?
+> _Obama_: Dann nutze keine OS- oder Versionserkennung
+> _Angela_: Aber ich möchte andere daran hindern, mein Betriebssystem zu erkennen
 
-&diams; [Source 1](http://meta.stackoverflow.com/questions/66377/what-is-the-xy-problem) &diams; [Source 2](http://mywiki.wooledge.org/XyProblem) &diams;
+&diams; [Quelle 1](http://meta.stackoverflow.com/questions/66377/what-is-the-xy-problem) &diams; [Quelle 2](http://mywiki.wooledge.org/XyProblem) &diams;

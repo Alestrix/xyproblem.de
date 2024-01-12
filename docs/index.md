@@ -44,12 +44,12 @@ n00b Will eigentlich nicht die letzten drei Zeichen eines Dateinamens, sondern d
 
 Wenn Angela einfach gleich erzählt hätte, sie möchte verhindern, dass andere Ihr Betriebssystem erkennen können, wäre all das viel schneller und produktiver verlaufen.
 
-> _Angela_: 'nmap -O -A 127.0.0.1' gibt ein paar Zeilen mit 'OS:' zurück. Wie kann ich das ändern?
-> _Obama_: Schaue im Quellcode von nmap, finde die Stelle mit der Linux-Erkennung, dann schreibe Deinen TCP/IP Stack so um, dass nmap es nicht mehr erkennt.
-> _Angela_: Okay, aber ich weiß absolut nichts über die Linux system API.
-> _Obama_: Nunja, das Fingerprinting von nmap basiert auf dem Verhalten des TCP/IP Stacks, es gibt nicht wirklich einen anderen Weg als die entsprechenden Teile dieses Stacks anzupassen.
-> _Angela_: Ich muss wirklich diese Meldungen unterbinden. Kann iptables das irgendwie erreichen?
-> _Obama_: Dann nutze keine OS- oder Versionserkennung
+> _Angela_: 'nmap -O -A 127.0.0.1' gibt ein paar Zeilen mit 'OS:' zurück. Wie kann ich das ändern?  
+> _Obama_: Schaue im Quellcode von nmap, finde die Stelle mit der Linux-Erkennung, dann schreibe Deinen TCP/IP Stack so um, dass nmap es nicht mehr erkennt.  
+> _Angela_: Okay, aber ich weiß absolut nichts über die Linux system API.  
+> _Obama_: Nunja, das Fingerprinting von nmap basiert auf dem Verhalten des TCP/IP Stacks, es gibt nicht wirklich einen anderen Weg als die entsprechenden Teile dieses Stacks anzupassen.  
+> _Angela_: Ich muss wirklich diese Meldungen unterbinden. Kann iptables das irgendwie erreichen?  
+> _Obama_: Dann nutze keine OS- oder Versionserkennung  
 > _Angela_: Aber ich möchte andere daran hindern, mein Betriebssystem zu erkennen
 
 &diams; [Quelle 1](http://meta.stackoverflow.com/questions/66377/what-is-the-xy-problem) &diams; [Quelle 2](http://mywiki.wooledge.org/XyProblem) &diams;

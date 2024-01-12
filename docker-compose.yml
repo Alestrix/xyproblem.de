@@ -1,0 +1,7 @@
+version: "3"
+services:
+  webdoc:
+    image: titom73/mkdocs
+    volumes:
+      - ${PWD}:/docs
+    command: ["build"]

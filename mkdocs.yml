@@ -1,6 +1,6 @@
 site_name: Das XY Problem
 theme:
-  name: cluster
+  name: lux
 extra:
     prev_next_enabled: False
     hidden: ['Home', 'MailUs']

@@ -5,3 +5,6 @@ extra:
     prev_next_enabled: False
     hidden: ['Home', 'MailUs']
     fa_logo: 'fa-cube'
+    social:
+      - icon: fontawesome/brands/github 
+        link: https://github.com/Alestrix/xyproblem.de

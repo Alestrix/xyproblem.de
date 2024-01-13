@@ -18,7 +18,7 @@ Build the site and store it into the `./site` directory:
 docker compose --profile build up
 ```
 
-Deploy the built site from `./site` to your server (`.env` needs to be created accordingly based on `.env.tamplate`):
+Deploy the built site from `./site` to your server (`.env` needs to be created accordingly based on `.env.template`):
 ```
 docker compose --profile deploy up
 ```

@@ -52,7 +52,7 @@ Wenn Angela einfach gleich erzählt hätte, sie möchte verhindern, dass andere 
 
 ## Links
 
-Das XY Problem <xy-problem.de> ist eine Übersetzung dieser Seite: [The XY Problem](https://xyproblem.info/)  
+"Das XY Problem" (<https://xy-problem.de>) ist eine Übersetzung dieser Seite: [The XY Problem](https://xyproblem.info/)  
 Auch interessant: [Asking Smart Questions](http://www.catb.org/esr/faqs/smart-questions.html)  
 Wikipedia: [XY Problem](https://de.wikipedia.org/wiki/XY_Problem)  
 Für Anmerkungen: Mach ein [Issue](https://github.com/Alestrix/xyproblem.de/issues) auf oder starte eine [Diskussion](https://github.com/Alestrix/xyproblem.de/discussions)!  

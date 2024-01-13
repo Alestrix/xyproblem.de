@@ -1,4 +1,4 @@
-# xyproblem.de
+# xy-problem.de
 
 ## About
 

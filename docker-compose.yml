@@ -1,7 +1,26 @@
 version: "3"
 services:
-  webdoc:
+  build:
     image: titom73/mkdocs
     volumes:
       - ${PWD}:/docs
     command: ["build"]
+    profiles:
+      - build
+  serve:
+    image: titom73/mkdocs
+    ports:
+      - 8000:8000
+    volumes:
+      - ${PWD}:/docs
+    profiles:
+      - serve
+  deploy:
+    image: kroniak/ssh-client
+    volumes:
+      - ${PWD}:/docs
+      - ${KEYFILE}:/id_key
+    entrypoint: /bin/sh
+    command: /docs/deploy.sh
+    profiles:
+      - deploy

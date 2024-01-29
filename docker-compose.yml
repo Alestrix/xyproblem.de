@@ -16,7 +16,9 @@ services:
     profiles:
       - serve
   deploy:
-    image: kroniak/ssh-client
+    image: ${SCP_IMAGE:-kroniak/ssh-client}
+    env_file:
+      - .env
     volumes:
       - ${PWD}:/docs
       - ${KEYFILE}:/id_key

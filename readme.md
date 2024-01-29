@@ -26,5 +26,5 @@ docker compose --profile deploy up
 ## The Dockerfile
 
 `build_scp_image.sh` uses `Dockerfile` to create an [image](https://hub.docker.com/r/alestrix/wolfi-openssh-client) based on
-[wolfi-base](https://cgr.dev/chainguard/wolfi-base) with the `openssh-client` package installed. This can be used instead of the
-`kroniak/ssh-client` image to transfer the built site to your host.
+[wolfi-base](https://cgr.dev/chainguard/wolfi-base) with the `openssh-client` package installed. This can be used as alternative
+to the `kroniak/ssh-client` image to transfer the built site to your host.

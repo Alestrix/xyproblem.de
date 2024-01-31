@@ -22,9 +22,9 @@ Deploy the built site from `./site` to your server (`.env` needs to be created a
 ```
 docker compose --profile deploy up
 ```
+This uses an ssh key file to login to the server. That keyfile has permissions 0600, so to read it, the deploy code needs
+to run with the same UID as the keyfile's owner. This UID is set in `.env` as `KEYFILE_UID`.
 
-## The Dockerfile
+## Todo
 
-`build_scp_image.sh` uses `Dockerfile` to create an [image](https://hub.docker.com/r/alestrix/wolfi-openssh-client) based on
-[wolfi-base](https://cgr.dev/chainguard/wolfi-base) with the `openssh-client` package installed. This can be used as alternative
-to the `kroniak/ssh-client` image to transfer the built site to your host.
+The `titom73/mkdocs` image runs as root, causing the created files also to be stored with root ownership. I need to figure out how to make it work as non-root.

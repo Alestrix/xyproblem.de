@@ -19,10 +19,11 @@ services:
     image: ${SCP_IMAGE:-kroniak/ssh-client}
     env_file:
       - .env
+    user: "${KEYFILE_UID}"
     volumes:
-      - ${PWD}:/docs
-      - ${KEYFILE}:/id_key
-    entrypoint: /bin/sh
-    command: /docs/deploy.sh
+      - ${PWD}:/docs:ro
+      - ${KEYFILE_PATH}:/id_key:ro
+      - /etc/passwd:/etc/passwd:ro
+    command: scp -i /id_key -o StrictHostKeyChecking=no -r /docs/site/. ${DESTUSER}@${DESTSERVER}:${DESTDIR}
     profiles:
       - deploy

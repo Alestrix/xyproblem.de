@@ -94,6 +94,10 @@ data:
     # from the internet to cloudflared, run `cloudflared tunnel route dns <tunnel> <hostname>`.
     # E.g. `cloudflared tunnel route dns example-tunnel tunnel.example.com`.
     ingress:
+    - hostname: istesdns.de
+      service: http://istesdns-svc:80
+    - hostname: www.istesdns.de
+      service: http://istesdns-svc:80
     - hostname: xyproblem.de
       service: http://xyproblem-svc:80
     - hostname: www.xyproblem.de

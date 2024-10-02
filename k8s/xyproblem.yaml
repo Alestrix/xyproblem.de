@@ -1,0 +1,80 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xyproblem-dep
+spec:
+  selector:
+    matchLabels:
+      app: xyproblem
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: xyproblem
+    spec:
+      initContainers:
+      - name: pull-source
+        image: alpine:latest
+        command:
+        - sh
+        - -c
+        - |
+          cd /source
+          wget https://github.com/Alestrix/xyproblem.de/archive/refs/heads/master.zip
+          unzip master.zip
+          mv xyproblem.de-master/* .
+          ls -al
+        volumeMounts:
+        - name: source
+          mountPath: /source
+      - name: build-site
+        image: titom73/mkdocs:latest
+        args:
+        - build
+        - -d
+        - /site
+        volumeMounts:
+        - name: source
+          mountPath: /docs
+        - name: site
+          mountPath: /site
+      - name: check-site
+        image: alpine:latest
+        command:
+        - sh
+        - -c
+        - |
+          ls -al /public_html
+        volumeMounts:
+        - name: site
+          mountPath: /public_html
+      containers:
+      - name: xyproblem-web
+        image: joseluisq/static-web-server:2
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+            memory: 256M
+        volumeMounts:
+        - name: site
+          mountPath: /public
+      volumes:
+      - name: source
+        emptyDir: {}
+      - name: site
+        emptyDir:
+          medium: Memory
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: xyproblem-svc
+spec:
+  selector:
+    app: xyproblem
+  ports:
+    - protocol: TCP
+      port: 80

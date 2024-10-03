@@ -39,28 +39,21 @@ spec:
           mountPath: /docs
         - name: site
           mountPath: /site
-      - name: check-site
-        image: alpine:latest
-        command:
-        - sh
-        - -c
-        - |
-          ls -al /public_html
-        volumeMounts:
-        - name: site
-          mountPath: /public_html
       containers:
       - name: xyproblem-web
         image: joseluisq/static-web-server:2
         ports:
         - containerPort: 80
-        resources:
-          limits:
-            cpu: 500m
-            memory: 256M
         volumeMounts:
         - name: site
           mountPath: /public
+        resources:
+          limits:
+            cpu: "1000m"
+            memory: "256M"
+          requests:
+            cpu: "100m"
+            memory: "64M"
       volumes:
       - name: source
         emptyDir: {}

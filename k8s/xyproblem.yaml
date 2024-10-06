@@ -52,8 +52,8 @@ spec:
             cpu: "1000m"
             memory: "256M"
           requests:
-            cpu: "100m"
-            memory: "64M"
+            cpu: "10m"
+            memory: "32M"
       volumes:
       - name: source
         emptyDir: {}

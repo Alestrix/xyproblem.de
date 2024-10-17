@@ -54,6 +54,13 @@ spec:
           requests:
             cpu: "10m"
             memory: "32M"
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 1
+          initialDelaySeconds: 10
+          periodSeconds: 10
       volumes:
       - name: source
         emptyDir: {}

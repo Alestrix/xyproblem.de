@@ -27,4 +27,13 @@ to run with the same UID as the keyfile's owner. This UID is set in `.env` as `K
 
 ## Todo
 
-The `titom73/mkdocs` image runs as root, causing the created files also to be stored with root ownership. I need to figure out how to make it work as non-root.
+The `titom73/mkdocs` image runs as root, causing the created files also to be stored with root ownership. I need to figure
+out how to make it work as non-root.
+
+## Kubernetes
+
+I also created a deployable version of this as k8s manifests, see the `k8s` directory. The configuration to expose this
+via a cloudflare tunnel (rackspace's loadbalancer service is just too damn expensive!) is in a
+[separate](https://github.com/Alestrix/cloudflare-k8s) repo.
+
+The deployment pulls the docs from GitHub, renders them, and launches a simple webserver to serve the created site to the internet.

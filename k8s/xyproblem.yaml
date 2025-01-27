@@ -13,6 +13,7 @@ spec:
       labels:
         app: xyproblem
     spec:
+      automountServiceAccountToken: false
       initContainers:
       - name: pull-source
         image: alpine:latest

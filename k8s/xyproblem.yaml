@@ -58,6 +58,9 @@ spec:
             path: /health
             port: 80
             scheme: HTTP
+            failureThreshold: 1
+            initialDelaySeconds: 10
+            periodSeconds: 10
         ports:
         - containerPort: 80
         volumeMounts:
@@ -70,13 +73,6 @@ spec:
           requests:
             cpu: "10m"
             memory: "32M"
-        livenessProbe:
-          httpGet:
-            path: /
-            port: 80
-          failureThreshold: 1
-          initialDelaySeconds: 10
-          periodSeconds: 10
       volumes:
       - name: source
         emptyDir:

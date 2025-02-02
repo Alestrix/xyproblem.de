@@ -14,9 +14,22 @@ spec:
         app: xyproblem
     spec:
       automountServiceAccountToken: false
+      securityContext:
+      #   runAsGroup: 1000
+      #   runAsUser: 1000
+        fsGroup : 1000
+      #   runAsNonRoot: true
       initContainers:
       - name: pull-source
         image: alpine:latest
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          runAsGroup: 1000
+          runAsUser: 1000
+          runAsNonRoot: true
+          capabilities:
+            drop: [ALL]
         command:
         - sh
         - -c
@@ -25,16 +38,28 @@ spec:
           wget https://github.com/Alestrix/xyproblem.de/archive/refs/heads/master.zip
           unzip master.zip
           mv xyproblem.de-master/* .
+          #sed -i 's/lux/material/g' /source/mkdocs.yml
           ls -al
         volumeMounts:
         - name: source
           mountPath: /source
       - name: build-site
-        image: titom73/mkdocs:latest
+        image: titom73/mkdocs:latest #ghcr.io/peaceiris/mkdocs-material:v4.0.1
+        securityContext:
+          runAsGroup: 0
+          runAsUser: 0
+          runAsNonRoot: false
+          capabilities:
+            drop: [ALL]
         args:
         - build
         - -d
         - /site
+        # - sh
+        # - -c
+        # - |
+        #   pip install mkdocs-bootswatch
+        #   mkdocs build -d /site -f /docs/mkdocs.yml
         volumeMounts:
         - name: source
           mountPath: /docs
@@ -43,7 +68,17 @@ spec:
       containers:
       - name: xyproblem-web
         image: joseluisq/static-web-server:2
+        securityContext:
+          runAsGroup: 1000
+          runAsUser: 1000
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: [ALL]
         env:
+        - name: SERVER_PORT
+          value: "8080"
         - name: SERVER_LOG_FORWARDED_FOR
           value: 'true'
         - name: SERVER_LOG_REMOTE_ADDRESS
@@ -57,13 +92,13 @@ spec:
         livenessProbe:
           httpGet:
             path: /health
-            port: 80
+            port: 8080
             scheme: HTTP
-            failureThreshold: 1
-            initialDelaySeconds: 10
-            periodSeconds: 10
+          failureThreshold: 1
+          initialDelaySeconds: 10
+          periodSeconds: 10
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         volumeMounts:
         - name: site
           mountPath: /public
@@ -92,3 +127,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80
+      targetPort: 8080
